@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"launch_code",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"launch_code",
+  "parent":{
+    "name":"system",
+    "path":"folders/system.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
