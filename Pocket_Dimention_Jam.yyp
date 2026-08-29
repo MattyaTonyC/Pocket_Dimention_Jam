@@ -77,7 +77,6 @@
     {"id":{"name":"launch_code","path":"scripts/launch_code/launch_code.yy",},},
     {"id":{"name":"transition_animations","path":"scripts/transition_animations/transition_animations.yy",},},
     {"id":{"name":"ui_funcs","path":"scripts/ui_funcs/ui_funcs.yy",},},
-    {"id":{"name":"init","path":"sprites/init/init.yy",},},
     {"id":{"name":"s_background_test","path":"sprites/s_background_test/s_background_test.yy",},},
     {"id":{"name":"s_button","path":"sprites/s_button/s_button.yy",},},
     {"id":{"name":"s_chest","path":"sprites/s_chest/s_chest.yy",},},
