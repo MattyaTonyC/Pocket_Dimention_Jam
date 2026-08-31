@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"assets",
-    "path":"folders/system/assets.yy",
+    "path":"folders/rooms/assets.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

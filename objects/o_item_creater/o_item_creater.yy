@@ -8,8 +8,8 @@
   "name":"o_item_creater",
   "overriddenProperties":[],
   "parent":{
-    "name":"dev_objects",
-    "path":"folders/dev_objects.yy",
+    "name":"debug",
+    "path":"folders/dev_objects/debug.yy",
   },
   "parentObjectId":null,
   "persistent":false,

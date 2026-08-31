@@ -7,8 +7,10 @@ list_collision = {
 	pushable: [ o_player, p_pushable ],
 	
 	buildings: [ o_chest ],
+	
+	destructible: [ o_target_practice ],
 }
-list_collision_all_nameflags = [ "solid", "pushable", "buildings", ]
+list_collision_all_nameflags = [ "solid", "pushable", "buildings", "destructible" ]
 
 //
 function make_collide_list( nameflags=global.list_collision_all_nameflags ) {

@@ -30,24 +30,25 @@ if (pause_menu) {
 // В ИГРЕ (ВНЕ ПАУЗЫ)
 else {
 	// ВЫБОР ПРЕДМЕТА В РУКАХ
+	var inv_len = array_length(o_player.inventory)-1
 	var inhand_slot_target = noone
 	for (var i=0; i<=9; i++) {
 		if (keyboard_check_pressed(ord(string(i)))) {
 			inhand_slot_target = i - 1
-			if (i==0) inhand_slot_target = 9
+			if (i==0) inhand_slot_target = inv_len
 		}
 	}
 	if (inhand_slot_target != noone) {
-		if (inhand_slot != inhand_slot_target) inhand_slot = inhand_slot_target
-		else inhand_slot = noone
+		if (inhand_slot_target == inhand_slot) || (inhand_slot_target > inv_len) inhand_slot = noone
+		else inhand_slot = inhand_slot_target
 	}
 	if (keyboard_check(vk_alt)) {
 		var wheel_change = mouse_wheel_up() - mouse_wheel_down()
 		if (wheel_change != 0) {
 			if (inhand_slot == noone) inhand_slot = -1
 			inhand_slot += mouse_wheel_up() - mouse_wheel_down()
-			if (inhand_slot > 9) inhand_slot = 0
-			if (inhand_slot < 0) inhand_slot = 9
+			if (inhand_slot > inv_len) inhand_slot = 0
+			if (inhand_slot < 0) inhand_slot = inv_len
 		}
 	}
 	
@@ -72,10 +73,11 @@ else {
 	else if (inhand_inst_target != noone) inhand_inst = instance_create_layer( o_player.x,o_player.y, "Player", inhand_inst_target )
 	
 	
-	// ОТРИСОВКА ИНВЕНТОРЕЙ
+	/// ОТРИСОВКА ИНВЕНТОРЕЙ
+	// ИВЕНТАРЬ ИГРОКА
 	var hover_inv = o_player.inventory
 	var hover_i = inventory_draw( gui_w/2, gui_h-50, o_player.inventory, inhand_slot )
-	
+	// ИНВЕНТАРЬ СУНДУКОВ
 	var inv_inst = noone
 	var min_dis = 150
 	for (var i=0; i<array_length(global.list_inventory); i++) {
@@ -99,13 +101,15 @@ else {
 		button_text( gui_w/2+50*array_length(inv_inst.inventory), gui_h-150-25, eject_button )
 	}
 	
-	// ПРЕДМЕТ В МЫШКЕ
+	/// ПРЕДМЕТ В МЫШКЕ
+	// ВЗЯТИЕ
 	if (hover_i != noone) && (inhand_inst == noone) && (mouse_check_button_pressed(mb_left)) {
 		drag_slot = hover_inv[hover_i]
 		hover_inv[hover_i] = new slot_empty()
 		drag_slot_i = hover_i
 		drag_slot_inv = hover_inv
 	}
+	// ОТРИСОВКА
 	if (drag_slot.id != noone) {
 		var item_data = struct_get( global.item_list, drag_slot.id )
 		draw_sprite( item_data.sprite, 0, mx,my )
@@ -115,16 +119,22 @@ else {
 		draw_text_transformed( mx+s/2 -1, my+s/2 +1, drag_slot.amount, 0.5,0.5, 0 )
 		draw_set_halign(fa_left); draw_set_valign(fa_top)
 		
-		//
+		// ОТПУСКАНИЕ
 		if (mouse_check_button_released(mb_left)) {
 			var target_i = hover_i
 			var target_inv = hover_inv
-			if (hover_i == noone) {
-				target_i = drag_slot_i
-				target_inv = drag_slot_inv
+			if (target_i == noone) {
+				if (drag_slot_inv[drag_slot_i].id == noone) {
+					target_i = drag_slot_i
+					target_inv = drag_slot_inv
+				}
+				else target_i = noone
 			}
-			
-			switch (target_inv[target_i].id) {
+			if (target_i == noone) {
+				var success = inventory_add( drag_slot_inv, drag_slot )
+				if (success == noone) drop_pickup( o_player.x,o_player.y, drag_slot.id,drag_slot.amount, random(360), 10 )
+			}
+			else switch (target_inv[target_i].id) {
 				case (noone):
 				case (drag_slot.id):
 					target_inv[target_i].id = drag_slot.id
@@ -138,6 +148,7 @@ else {
 			drag_slot = new slot_empty()
 		}
 	}
+	// СБРОС НА ПКМ
 	if (drag_slot.id != noone) {
 		if (mouse_check_button_released(mb_right)) {
 			var target_i = hover_i
@@ -146,21 +157,22 @@ else {
 				target_i = drag_slot_i
 				target_inv = drag_slot_inv
 			}
+			var drop_amount = 1
+			if (keyboard_check(vk_shift)) drop_amount = drag_slot.amount
 			
+			// СБРОС ПИКАПА
 			if (hover_i == noone) {
-				var dir = point_direction( o_player.x, o_player.y, mouse_x, mouse_y ) 
-				with (instance_create_layer( o_player.x,o_player.y, "Instances", o_pickup )) {
-					item_id = other.drag_slot.id
-					var dropped_item_data = struct_get( global.item_list, item_id )
-					sprite_index = dropped_item_data.sprite
-					spd.x = lengthdir_x(10,dir)
-					spd.y = lengthdir_y(10,dir)
-				}
-				drag_slot.amount --
+				var dir = point_direction( o_player.x, o_player.y, mouse_x, mouse_y )
+				drop_pickup( o_player.x,o_player.y, drag_slot.id, drop_amount, dir, 10 )
+				drag_slot.amount -= drop_amount
 				if (drag_slot.amount <= 0) drag_slot = new slot_empty()
 			}
-			else if (hover_inv[hover_i].id == drag_slot.id) {
-				
+			// СБРОС В ЯЧЕЙКУ
+			else if (hover_inv[hover_i].id == drag_slot.id) || (hover_inv[hover_i].id == noone) {
+				hover_inv[hover_i].id = drag_slot.id
+				hover_inv[hover_i].amount += drop_amount
+				drag_slot.amount -= drop_amount
+				if (drag_slot.amount <= 0) drag_slot = new slot_empty()
 			}
 		}
 	}
@@ -169,6 +181,19 @@ else {
 // ПАУЗА
 if (keyboard_check_pressed(vk_escape)) pause_menu = !pause_menu
 if (pause_menu) && (!pause_menu_prev) {
+	// возвращение предмета из курсора
+	if (drag_slot.id != noone) {
+		if (drag_slot_inv[drag_slot_i].id == noone) {
+			drag_slot_inv[drag_slot_i].id = drag_slot.id
+			drag_slot_inv[drag_slot_i].amount += drag_slot.amount
+		}
+		else {
+			var success = inventory_add( drag_slot_inv, drag_slot )
+			if (success == noone) drop_pickup( o_player.x,o_player.y, drag_slot.id,drag_slot.amount, random(360), 10 )
+		}
+		drag_slot = new slot_empty()
+	}
+	
 	instance_deactivate_object(camera)
 	instance_deactivate_layer("Player")
 	instance_deactivate_layer("Instances")

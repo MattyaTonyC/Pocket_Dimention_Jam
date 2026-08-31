@@ -8,8 +8,8 @@
   "name":"o_room_exit",
   "overriddenProperties":[],
   "parent":{
-    "name":"player",
-    "path":"folders/player.yy",
+    "name":"zones",
+    "path":"folders/dev_objects/zones.yy",
   },
   "parentObjectId":null,
   "persistent":false,

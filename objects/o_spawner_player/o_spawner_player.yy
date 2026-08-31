@@ -6,8 +6,8 @@
   "name":"o_spawner_player",
   "overriddenProperties":[],
   "parent":{
-    "name":"player",
-    "path":"folders/player.yy",
+    "name":"zones",
+    "path":"folders/dev_objects/zones.yy",
   },
   "parentObjectId":null,
   "persistent":false,

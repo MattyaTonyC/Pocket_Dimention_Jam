@@ -10,15 +10,9 @@ if (ejecting) {
 	}
 }
 if (ejecting) && (cooldown == 0) {
-	cooldown = 2
+	cooldown = 3
 	var dir = point_direction(x,y,o_player.x,o_player.y) + random_range(-45,45)
-	with (instance_create_layer( x,y, "Instances", o_pickup )) {
-		item_id = other.inventory[other.ejecting_i].id
-		var dropped_item_data = struct_get( global.item_list, item_id )
-		sprite_index = dropped_item_data.sprite
-		spd.x = lengthdir_x(10,dir)
-		spd.y = lengthdir_y(10,dir)
-	}
+	drop_pickup( x,y, inventory[ejecting_i].id, 1, dir, 10 )
 	inventory[ejecting_i].amount --
 	if (inventory[ejecting_i].amount <= 0) inventory[ejecting_i] = new slot_empty()
 }

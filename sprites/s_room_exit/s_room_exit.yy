@@ -44,8 +44,8 @@
   },
   "origin":4,
   "parent":{
-    "name":"player",
-    "path":"folders/player.yy",
+    "name":"zones",
+    "path":"folders/dev_objects/zones.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

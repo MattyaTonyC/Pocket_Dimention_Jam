@@ -21,8 +21,8 @@
   ],
   "name":"r_template",
   "parent":{
-    "name":"rooms",
-    "path":"folders/rooms.yy",
+    "name":"assets",
+    "path":"folders/rooms/assets.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

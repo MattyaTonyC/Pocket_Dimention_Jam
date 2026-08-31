@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"jokes",
-    "path":"folders/jokes.yy",
+    "path":"folders/dev_objects/jokes.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

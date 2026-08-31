@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"dev_objects",
-    "path":"folders/dev_objects.yy",
+    "name":"debug",
+    "path":"folders/dev_objects/debug.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

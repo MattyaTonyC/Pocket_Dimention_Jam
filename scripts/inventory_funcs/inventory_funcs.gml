@@ -31,11 +31,13 @@ function inventory_draw( x0,y0, inv, inhand=noone ) {
 	var s = 75
 	for (var i=0; i<array_length(inv); i++) {
 		var ix = x0 + 100*(i+0.5-array_length(inv)/2)
+		draw_set_colour(c_ltgray)
 		draw_rectangle( ix-s/2, y0-s/2, ix+s/2, y0+s/2, true )
+		draw_set_colour(c_white)
 		
 		if (i == inhand) {
 			draw_set_colour(c_yellow)
-			draw_line( ix-s/2, y0-s/2-5, ix+s/2, y0-s/2-5 )
+			draw_rectangle( ix-s/2, y0-s/2-5-5, ix+s/2, y0-s/2-5, false )
 			draw_set_colour(c_white)
 		}
 		
@@ -44,9 +46,11 @@ function inventory_draw( x0,y0, inv, inhand=noone ) {
 			var item_data = struct_get( global.item_list, item.id )
 			draw_sprite( item_data.sprite, 0, ix, y0 )
 			
-			draw_set_halign(fa_right); draw_set_valign(fa_bottom)
-			draw_text_transformed( ix+s/2 -2, y0+s/2 +1, item.amount, 0.5,0.5, 0 )
-			draw_set_halign(fa_left); draw_set_valign(fa_top)
+			if (item.amount > 1) {
+				draw_set_halign(fa_right); draw_set_valign(fa_bottom)
+				draw_text_transformed( ix+s/2 -2, y0+s/2 +1, item.amount, 0.5,0.5, 0 )
+				draw_set_halign(fa_left); draw_set_valign(fa_top)
+			}
 		}
 		
 		var inside = point_in_rectangle( mx,my, ix-s/2, y0-s/2, ix+s/2, y0+s/2 )
@@ -56,7 +60,7 @@ function inventory_draw( x0,y0, inv, inhand=noone ) {
 }
 
 
-// ВЗАИМОДЕЙСТВИЕ
+// ВЗАИМОДЕЙСТВИЯ
 function inventory_add( inv, item ) {
 	var target_slot = noone
 	for (var i=0; i<array_length(inv); i++) {
@@ -71,4 +75,16 @@ function inventory_add( inv, item ) {
 		inv[target_slot].amount += item.amount
 	}
 	return target_slot
+}
+
+// ПИКАП
+function drop_pickup( x0,y0, arg_item_id, amount=1, dir=0, dis=0 ) {
+	with (instance_create_layer(x0,y0,"Instances",o_pickup)) {
+		item_id = arg_item_id
+		item_amount = amount
+		var dropped_item_data = struct_get( global.item_list, item_id )
+		sprite_index = dropped_item_data.sprite
+		spd.x = lengthdir_x(dis,dir)
+		spd.y = lengthdir_y(dis,dir)
+	}
 }
