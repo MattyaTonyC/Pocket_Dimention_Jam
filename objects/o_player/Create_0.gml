@@ -1,7 +1,7 @@
 //
-movespd = 10
-runspd = 5
-acc = 1
+movespd = 8
+runspd = 4
+acc = 0.5
 spd = { x:0, y:0 }
 
 //

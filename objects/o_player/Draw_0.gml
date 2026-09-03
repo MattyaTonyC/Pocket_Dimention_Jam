@@ -11,4 +11,8 @@ var image = floor( (sprite_get_speed(sprite)+1) * current_time/1000 * (1+0.5*key
 draw_sprite_ext( sprite,image, x,y, xwobble,ywobble, 0, c_white,1 )
 
 //
-with (tugging_inst) draw_circle( x,y, 150, true )
+with (tugging_inst) {
+	draw_set_colour(c_aqua); draw_set_alpha(0.5)
+	draw_line_width( o_player.x,o_player.y, x,y, 10 )
+	draw_set_colour(c_white); draw_set_alpha(1)
+}

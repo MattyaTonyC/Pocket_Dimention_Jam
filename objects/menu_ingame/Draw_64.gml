@@ -104,10 +104,19 @@ else {
 	/// ПРЕДМЕТ В МЫШКЕ
 	// ВЗЯТИЕ
 	if (hover_i != noone) && (inhand_inst == noone) && (mouse_check_button_pressed(mb_left)) {
-		drag_slot = hover_inv[hover_i]
-		hover_inv[hover_i] = new slot_empty()
-		drag_slot_i = hover_i
-		drag_slot_inv = hover_inv
+		if (inv_inst != noone) && (keyboard_check(vk_shift)) {
+			var target_inv_add = inv_inst.inventory
+			if (hover_inv == inv_inst.inventory) target_inv_add = o_player.inventory
+			
+			var success = inventory_add( target_inv_add, hover_inv[hover_i] )
+			if (success != noone) hover_inv[hover_i] = new slot_empty()
+		}
+		else {
+			drag_slot = hover_inv[hover_i]
+			hover_inv[hover_i] = new slot_empty()
+			drag_slot_i = hover_i
+			drag_slot_inv = hover_inv
+		}
 	}
 	// ОТРИСОВКА
 	if (drag_slot.id != noone) {

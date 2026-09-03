@@ -8,6 +8,9 @@ spd.x += lengthdir_x( target_spd.dis, target_spd.dir )
 spd.y += lengthdir_y( target_spd.dis, target_spd.dir )
 
 //
+var xprev = x
+var yprev = y
+
 var collide_list = make_collide_list(nameflags)
 
 if (array_contains_ext(collide_list,global.list_collision.pushable,true)) {
@@ -15,3 +18,6 @@ if (array_contains_ext(collide_list,global.list_collision.pushable,true)) {
 	push( x+spd.x, y+spd.y, push_dis, id )
 }
 move_and_collide( spd.x, spd.y, collide_list )
+
+spd.x = sign(spd.x) * min( abs(x-xprev), abs(spd.x) )
+spd.y = sign(spd.y) * min( abs(y-yprev), abs(spd.y) )

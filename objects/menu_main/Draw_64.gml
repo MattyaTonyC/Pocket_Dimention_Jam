@@ -20,5 +20,8 @@ draw_set_halign(fa_left); draw_set_valign(fa_top)
 
 // НАСТРОЙКИ
 if (settings_open) {
-	draw_circle( gui_w/2, gui_h/2, gui_h/2, true )
+	draw_set_halign(fa_center); draw_set_valign(fa_middle)
+	draw_text( gui_w/2, gui_h/2, "DA NET BLAYTb" )
+	draw_set_halign(fa_left); draw_set_valign(fa_top)
+	draw_rectangle( gui_w/2-500, gui_h/2-500, gui_w/2+500, gui_h/2+500, true )
 }
