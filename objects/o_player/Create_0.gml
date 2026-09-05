@@ -1,4 +1,8 @@
 //
+hp_max = 100
+hp = hp_max
+
+//
 movespd = 8
 runspd = 4
 acc = 0.5

@@ -15,8 +15,8 @@
     "path":"folders/inventory.yy",
   },
   "parentObjectId":{
-    "name":"o_sphere",
-    "path":"objects/o_sphere/o_sphere.yy",
+    "name":"p_pushable",
+    "path":"objects/p_pushable/p_pushable.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

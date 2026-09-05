@@ -29,6 +29,10 @@ if (pause_menu) {
 
 // В ИГРЕ (ВНЕ ПАУЗЫ)
 else {
+	// ЗДОРОВЬЕ
+	draw_text( 25,25, $"hp {o_player.hp} / {o_player.hp_max}" )
+	
+	
 	// ВЫБОР ПРЕДМЕТА В РУКАХ
 	var inv_len = array_length(o_player.inventory)-1
 	var inhand_slot_target = noone

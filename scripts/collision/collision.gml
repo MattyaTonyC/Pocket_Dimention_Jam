@@ -4,7 +4,7 @@ list_collision = {
 	solid: [],
 	solid_temp: [ o_wall ],
 	
-	pushable: [ o_player, p_pushable ],
+	pushable: [ o_player, o_cube, o_sphere, o_pickup ],
 	
 	buildings: [ o_chest ],
 	
@@ -17,11 +17,14 @@ function make_collide_list( nameflags=global.list_collision_all_nameflags ) {
 	var collide_list = []
 	for (var i=0; i<array_length(nameflags); i++) {
 		var collision_type_list = struct_get( global.list_collision, nameflags[i] )
-		if (!place_meeting(x,y,collision_type_list)) array_copy( collide_list, array_length(collide_list), collision_type_list, 0, array_length(collision_type_list) )
-		else if (random(100) < 10) {
-			spd.x += random_range(-2,2)
-			spd.y += random_range(-2,2)
-			audio_play_sound( snd_Gmod_Collision, 0,false, random_range(0.5,0.75), 0, random_range(0.5,1.5) )
+		
+		for (var j=0; j<array_length(collision_type_list); j++) {
+			if (!place_meeting(x,y,collision_type_list[j])) array_push( collide_list, collision_type_list[j] )
+			else if (random(100) < 10) {
+				spd.x += random_range(-2,2)
+				spd.y += random_range(-2,2)
+				audio_play_sound( snd_Gmod_Collision, 0,false, random_range(0.5,0.75), 0, random_range(0.5,1.5) )
+			}
 		}
 	}
 	return collide_list

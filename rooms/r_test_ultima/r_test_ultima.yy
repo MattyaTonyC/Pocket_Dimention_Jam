@@ -295,6 +295,7 @@
     {"name":"inst_5A41B16B","path":"rooms/r_test_ultima/r_test_ultima.yy",},
     {"name":"inst_5779226B","path":"rooms/r_test_ultima/r_test_ultima.yy",},
     {"name":"inst_7D0BE84B","path":"rooms/r_test_ultima/r_test_ultima.yy",},
+    {"name":"inst_4F5E70E3","path":"rooms/r_test_ultima/r_test_ultima.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -773,6 +774,7 @@
         {"$GMRInstance":"v4","%Name":"inst_5A41B16B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5A41B16B","objectId":{"name":"o_door_swing3","path":"objects/o_door_swing3/o_door_swing3.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-90.0,"scaleX":1.0,"scaleY":1.0,"x":8850.0,"y":7750.0,},
         {"$GMRInstance":"v4","%Name":"inst_5779226B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5779226B","objectId":{"name":"o_door_swing3","path":"objects/o_door_swing3/o_door_swing3.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":90.0,"scaleX":1.0,"scaleY":1.0,"x":8850.0,"y":7950.0,},
         {"$GMRInstance":"v4","%Name":"inst_7D0BE84B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7D0BE84B","objectId":{"name":"o_door_swing3","path":"objects/o_door_swing3/o_door_swing3.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":90.0,"scaleX":1.0,"scaleY":1.0,"x":9450.0,"y":7750.0,},
+        {"$GMRInstance":"v4","%Name":"inst_4F5E70E3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4F5E70E3","objectId":{"name":"o_laser_field","path":"objects/o_laser_field/o_laser_field.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":5050.0,"y":3650.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Walls","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Walls","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":100,"SerialiseWidth":100,"TileCompressedData":[
           -101,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,
