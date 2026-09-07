@@ -1,4 +1,13 @@
 /// ПЕРЕДВИЖЕНИЕ
+var map_id = layer_tilemap_get_id("Floors")
+var cell_x = tilemap_get_cell_x_at_pixel( map_id, x,y )
+var cell_y = tilemap_get_cell_y_at_pixel( map_id, x,y )
+var cell_ind = tile_get_index( tilemap_get( map_id, cell_x,cell_y ) )
+var inwater = false
+if (cell_ind != 0) inwater = true
+anim_water = inwater
+
+//
 var input = { x:0, y:0, dis:0, dir:0 }
 with (input) {
 	x = keyboard_check(ord("D")) - keyboard_check(ord("A"))
@@ -6,13 +15,14 @@ with (input) {
 	dis = min( point_distance(0,0,x,y), 1 )
 	dir = point_direction(0,0,x,y)
 }
+anim_input = input.dis
 //
 var target_spd = {
-	x: (movespd + runspd*keyboard_check(vk_shift)) * lengthdir_x( input.dis, input.dir ),
-	y: (movespd + runspd*keyboard_check(vk_shift)) * lengthdir_y( input.dis, input.dir ),
+	x: (movespd + runspd*keyboard_check(vk_shift)) * (1-inwater/2) * lengthdir_x( input.dis, input.dir ),
+	y: (movespd + runspd*keyboard_check(vk_shift)) * (1-inwater/2) * lengthdir_y( input.dis, input.dir ),
 	dis:0, dir:0
 }
-target_spd.dis = min( point_distance( spd.x, spd.y, target_spd.x, target_spd.y), acc )
+target_spd.dis = min( point_distance( spd.x, spd.y, target_spd.x, target_spd.y), acc*(1-inwater/2) )
 target_spd.dir = point_direction( spd.x, spd.y, target_spd.x, target_spd.y)
 //
 spd.x += lengthdir_x( target_spd.dis, target_spd.dir )

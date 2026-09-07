@@ -4,9 +4,13 @@ event_inherited();
 // СОЕДИНЕНИЕ ПИКАПОВ
 var inst = instance_place(x,y,o_pickup)
 if (inst != noone) if (inst.item_id == item_id) {
-	item_amount += inst.item_amount
-	with (inst) instance_destroy()
+	join_stacks_timer --
+	if (join_stacks_timer <= 0) {
+		item_amount += inst.item_amount
+		with (inst) instance_destroy()
+	}
 }
+else join_stacks_timer = 30
 
 // ПОДБОР
 if (keyboard_check(vk_space)) && (item_id != "") {

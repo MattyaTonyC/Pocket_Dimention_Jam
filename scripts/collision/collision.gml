@@ -32,7 +32,7 @@ function make_collide_list( nameflags=global.list_collision_all_nameflags ) {
 
 //
 function push( x0,y0, push_dis, caller_id=id ) {
-	if (push_dis < 0.1) return
+	if (push_dis < 0.5) return
 	
 	var collision_list = ds_list_create()
 	var collision_num = instance_place_list( x0,y0, global.list_collision.pushable, collision_list, true )

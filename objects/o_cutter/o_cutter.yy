@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"cutter",
-    "path":"folders/items/cutter.yy",
+    "path":"folders/items/instruments/cutter.yy",
   },
   "parentObjectId":{
     "name":"p_inhand",

@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Pocket_Dimention_Jam",
-    "path":"Pocket_Dimention_Jam.yyp",
+    "name":"traps",
+    "path":"folders/traps.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

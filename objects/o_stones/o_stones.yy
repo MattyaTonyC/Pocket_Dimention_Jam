@@ -5,15 +5,15 @@
   "managed":true,
   "name":"o_stones",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"o_target_practice","path":"objects/o_target_practice/o_target_practice.yy",},"propertyId":{"name":"drop_item","path":"objects/o_target_practice/o_target_practice.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"wood",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"p_breakable","path":"objects/p_breakable/p_breakable.yy",},"propertyId":{"name":"drop_item","path":"objects/p_breakable/p_breakable.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"stone",},
   ],
   "parent":{
-    "name":"Pocket_Dimention_Jam",
-    "path":"Pocket_Dimention_Jam.yyp",
+    "name":"breakable",
+    "path":"folders/breakable.yy",
   },
   "parentObjectId":{
-    "name":"o_target_practice",
-    "path":"objects/o_target_practice/o_target_practice.yy",
+    "name":"p_breakable",
+    "path":"objects/p_breakable/p_breakable.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

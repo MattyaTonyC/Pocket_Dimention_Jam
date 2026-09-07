@@ -11,7 +11,7 @@ for (var i=0; i<3; i++) {
 		target_dis = 10+40*i
 		image_xscale = 0.2
 		image_yscale = 0.2
-		mass = 100
+		mass = 200 - 50*i
 		nameflags = [ "pushable" ]
 		image_alpha = 0.25
 	}

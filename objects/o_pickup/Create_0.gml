@@ -9,3 +9,5 @@ if (item_id != "") {
 	sprite_index = item_data.sprite
 }
 item_amount = 1
+
+join_stacks_timer = 30

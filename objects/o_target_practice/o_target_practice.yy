@@ -1,18 +1,18 @@
 {
   "$GMObject":"",
   "%Name":"o_target_practice",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":73,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"o_target_practice",
   "overriddenProperties":[],
   "parent":{
-    "name":"Pocket_Dimention_Jam",
-    "path":"Pocket_Dimention_Jam.yyp",
+    "name":"breakable",
+    "path":"folders/breakable.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"p_breakable",
+    "path":"objects/p_breakable/p_breakable.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -28,7 +28,7 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"hp","filters":[],"listItems":[],"multiselect":false,"name":"hp","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"100","varType":0,},
-    {"$GMObjectProperty":"v2","%Name":"drop_item","filters":[],"listItems":[],"multiselect":false,"name":"drop_item","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
+    {"$GMObjectProperty":"v2","%Name":"drop_item","filters":[],"listItems":[],"multiselect":false,"name":"drop_item","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"wood","varType":2,},
     {"$GMObjectProperty":"v2","%Name":"amount","filters":[],"listItems":[],"multiselect":false,"name":"amount","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":0,},
   ],
   "resourceType":"GMObject",

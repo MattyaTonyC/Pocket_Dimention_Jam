@@ -28,7 +28,7 @@
   "origin":4,
   "parent":{
     "name":"cutter",
-    "path":"folders/items/cutter.yy",
+    "path":"folders/items/instruments/cutter.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
