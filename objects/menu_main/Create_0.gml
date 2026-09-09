@@ -1,6 +1,6 @@
 //
-background_col1 = make_colour_rgb(0,0,0)
-background_col2 = make_colour_rgb(10,10,10)
+background_col1 = make_colour_rgb(250,250,200)
+background_col2 = make_colour_rgb(50,100,100)
 
 // КНОПКИ МЕНЮ
 buttons = [

@@ -19,6 +19,7 @@
   "height":100,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"e5370b34-f3cf-4e50-b869-9623e511d8c9","blendMode":0,"displayName":"default (2)","isLocked":false,"name":"e5370b34-f3cf-4e50-b869-9623e511d8c9","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"956a937a-c826-41dd-a0ad-d9b2b4eccee4","blendMode":0,"displayName":"default","isLocked":false,"name":"956a937a-c826-41dd-a0ad-d9b2b4eccee4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"s_player_collision",

@@ -33,6 +33,36 @@ if (sprite != s_player_idle) draw_sprite_ext( s_player_head,image, head_x,head_y
 var backhand_flag = false
 var backhand_joint = {x:0,y:0}
 if (instance_exists(p_inhand)) if (xscale * p_inhand.image_yscale != 1) {
+	backhand_flag = true
+	var base ={ x:x+xwobble*(backhand_walk_pos[image][0]-50), y:y+ywobble*(backhand_walk_pos[image][1]-50) }
+	if (sprite == s_player_idle) base ={ x:x+xwobble*(backhand_idle_pos[0]-50), y:y+ywobble*(backhand_idle_pos[1]-50) }
+	
+	var base_dis = 50 - point_distance( base.x,base.y, x,y )
+	var item_dir = p_inhand.image_angle
+	draw_set_colour(c_gray)
+	draw_line( x-lengthdir_x(base_dis,item_dir),y-lengthdir_y(base_dis,item_dir), x+lengthdir_x(base_dis,item_dir),y+lengthdir_y(base_dis,item_dir) )
+	draw_set_colour(c_white)
+	var t = -1 + 2*min( point_distance( x,y, mouse_x,mouse_y ) / 400, 1 )
+	hand = {
+		x: x + t*lengthdir_x(base_dis,item_dir),
+		y: y + t*lengthdir_y(base_dis,item_dir),
+	}
+	draw_circle( hand.x,hand.y, 3, true )
+	
+	var mid_point = { x:(base.x+hand.x)/2, y:(base.y+hand.y)/2 }
+	var mid_dir = point_direction( base.x,base.y, mid_point.x,mid_point.y )
+	var dis1 = 25
+	var dis2 = point_distance( base.x,base.y, hand.x, hand.y ) / 2
+	var dis3 = sqrt(abs( sqr(dis1) - sqr(dis2) ))
+	var joint = {
+		x: mid_point.x+lengthdir_x(dis3,mid_dir+90*xscale),
+		y: mid_point.y+lengthdir_y(dis3,mid_dir+90*xscale),
+	}
+	draw_circle( joint.x,joint.y, 3, true )
+	
+	draw_line( base.x,base.y, joint.x,joint.y )
+	draw_line( joint.x,joint.y, hand.x,hand.y )
+	/*
 	var base ={ x:x+xwobble*(backhand_walk_pos[image][0]-50), y:y+ywobble*(backhand_walk_pos[image][1]-50) }
 	if (sprite == s_player_idle) base ={ x:x+xwobble*(backhand_idle_pos[0]-50), y:y+ywobble*(backhand_idle_pos[1]-50) }
 	var hand ={ x:p_inhand.x, y:p_inhand.y }
@@ -50,6 +80,7 @@ if (instance_exists(p_inhand)) if (xscale * p_inhand.image_yscale != 1) {
 	draw_line( base.x, base.y, joint.x, joint.y )
 	draw_line( joint.x, joint.y, p_inhand.x, p_inhand.y )
 	backhand_flag = true
+	*/
 }
 if (!backhand_flag) {
 	if (sprite == s_player_idle) draw_sprite_ext( s_player_backhand_idle,image, x,y, xwobble,ywobble, 0, c_white,1 )
@@ -69,22 +100,35 @@ else {
 // ПЕРЕДНЯЯ РУКА
 var fronthand_flag = false
 if (instance_exists(p_inhand)) if (xscale * p_inhand.image_yscale == 1) {
+	fronthand_flag = true
 	var base ={ x:x+xwobble*(fronthand_walk_pos[image][0]-50), y:y+ywobble*(fronthand_walk_pos[image][1]-50) }
 	if (sprite == s_player_idle) base ={ x:x+xwobble*(fronthand_idle_pos[0]-50), y:y+ywobble*(fronthand_idle_pos[1]-50) }
-	var hand ={ x:p_inhand.x, y:p_inhand.y }
+	
+	var base_dis = 50 - point_distance( base.x,base.y, x,y )
+	var item_dir = p_inhand.image_angle
+	draw_set_colour(c_gray)
+	draw_line( x-lengthdir_x(base_dis,item_dir),y-lengthdir_y(base_dis,item_dir), x+lengthdir_x(base_dis,item_dir),y+lengthdir_y(base_dis,item_dir) )
+	draw_set_colour(c_white)
+	var t = -1 + 2*min( point_distance( x,y, mouse_x,mouse_y ) / 400, 1 )
+	hand = {
+		x: x + t*lengthdir_x(base_dis,item_dir),
+		y: y + t*lengthdir_y(base_dis,item_dir),
+	}
+	draw_circle( hand.x,hand.y, 3, true )
+	
 	var mid_point = { x:(base.x+hand.x)/2, y:(base.y+hand.y)/2 }
+	var mid_dir = point_direction( base.x,base.y, mid_point.x,mid_point.y )
+	var dis1 = 25
+	var dis2 = point_distance( base.x,base.y, hand.x, hand.y ) / 2
+	var dis3 = sqrt(abs( sqr(dis1) - sqr(dis2) ))
+	var joint = {
+		x: mid_point.x+lengthdir_x(dis3,mid_dir-90*xscale),
+		y: mid_point.y+lengthdir_y(dis3,mid_dir-90*xscale),
+	}
+	draw_circle( joint.x,joint.y, 3, true )
 	
-	var dis1 = 27
-	var dis2 = point_distance( base.x, base.y, hand.x, hand.y ) / 2
-	var dis3 = sqrt( sqr(dis1) - sqr(dis2) )
-	
-	var dir = point_direction( base.x,base.y, hand.x,hand.y ) - 90*xscale
-	
-	var joint = { x:mid_point.x+lengthdir_x(dis3,dir), y:mid_point.y+lengthdir_y(dis3,dir) }
-	
-	draw_line( base.x, base.y, joint.x, joint.y )
-	draw_line( joint.x, joint.y, p_inhand.x, p_inhand.y )
-	fronthand_flag = true
+	draw_line( base.x,base.y, joint.x,joint.y )
+	draw_line( joint.x,joint.y, hand.x,hand.y )
 }
 if (!fronthand_flag) {
 	if (sprite == s_player_idle) draw_sprite_ext( s_player_fronthand_idle,image, x,y, xwobble,ywobble, 0, c_white,1 )
@@ -92,10 +136,26 @@ if (!fronthand_flag) {
 }
 
 // ЗАДНЯЯ РУКА НАД ТЕЛОМ
+/*
 if (instance_exists(p_inhand)) if (xscale * p_inhand.image_yscale != 1) {
 	draw_line( backhand_joint.x, backhand_joint.y, p_inhand.x, p_inhand.y )
 }
+if (instance_exists(p_inhand)) {
+	var arm_dir = p_inhand.image_angle
+	draw_line( x,y, x+lengthdir_x(10,arm_dir),y+lengthdir_y(10,arm_dir) )
+}*/
+/*
+var mouse_dir = point_direction( x,y, mouse_x,mouse_y )
+var arm_orig = fronthand_idle_pos
+if (90 <= mouse_dir) && (mouse_dir < 270) {
+	arm_orig = backhand_idle_pos
+}
 
+//draw_sprite( s_player_idle,0, x,y )
+draw_circle( x+arm_orig[0]-50,y+arm_orig[1]-50, 35, true )
+draw_circle( x,y, 1, true )
+draw_line( x-lengthdir_x(150,mouse_dir), y-lengthdir_y(150,mouse_dir), x+lengthdir_x(150,mouse_dir), y+lengthdir_y(150,mouse_dir) )
+*/
 
 //
 with (tugging_inst) {
