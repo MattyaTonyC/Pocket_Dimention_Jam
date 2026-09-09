@@ -1,10 +1,12 @@
 // ВЫДЕЛЕНИЕ
-var dis = point_distance( x,y, o_player.x,o_player.y )
-if (dis <= 120) circle_alpha = min( circle_alpha+0.05, 0.25)
-else circle_alpha = max( circle_alpha-0.025, 0)
-draw_set_alpha(circle_alpha)
-draw_circle( x,y, 30, false )
-draw_set_alpha(1)
+if (instance_exists(o_player)) {
+	var dis = point_distance( x,y, o_player.x,o_player.y )
+	if (dis <= 120) circle_alpha = min( circle_alpha+0.05, 0.25)
+	else circle_alpha = max( circle_alpha-0.025, 0)
+	draw_set_alpha(circle_alpha)
+	draw_circle( x,y, 30, false )
+	draw_set_alpha(1)
+}
 
 // ВОБЛИ СПРАЙТ
 var arg = current_time/10+phase_offset

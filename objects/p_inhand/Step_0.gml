@@ -1,5 +1,8 @@
 //
-image_angle = point_direction( o_player.x,o_player.y, mouse_x,mouse_y )
+image_angle += angle_difference( point_direction( o_player.x,o_player.y, mouse_x,mouse_y ), image_angle) / 4
+
+if (image_angle >= 360) image_angle -= 360
+if (image_angle < 0) image_angle += 360
 
 image_yscale = 1
 if (image_angle > 90) && (image_angle <= 270) image_yscale = -1

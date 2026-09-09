@@ -28,7 +28,7 @@ if (pause_menu) {
 
 
 // В ИГРЕ (ВНЕ ПАУЗЫ)
-else {
+else if (instance_exists(o_player)) {
 	// ЗДОРОВЬЕ
 	draw_text( 25,25, $"hp {o_player.hp} / {o_player.hp_max}" )
 	

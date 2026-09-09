@@ -1,4 +1,6 @@
 //
+hinge = { x:x-lengthdir_x(50,image_angle), y:y-lengthdir_y(50,image_angle) }
+
 var dir0 = point_direction( hinge.x, hinge.y, collision_spheres[0].x, collision_spheres[0].y )
 var dir1 = point_direction( hinge.x, hinge.y, collision_spheres[1].x, collision_spheres[1].y )
 var dir2 = point_direction( hinge.x, hinge.y, collision_spheres[2].x, collision_spheres[2].y )

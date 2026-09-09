@@ -13,7 +13,7 @@ if (inst != noone) if (inst.item_id == item_id) {
 else join_stacks_timer = 30
 
 // ПОДБОР
-if (keyboard_check(vk_space)) && (item_id != "") {
+if (keyboard_check(vk_space)) && (item_id != "") && (instance_exists(o_player)) {
 	var dis = point_distance( x,y, o_player.x,o_player.y )
 	if (dis <= 120) {
 		var success = inventory_add( o_player.inventory, { id:item_id, amount:item_amount } )

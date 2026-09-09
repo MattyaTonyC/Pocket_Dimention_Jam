@@ -296,6 +296,7 @@
     {"name":"inst_18241932","path":"rooms/r_test_ultima/r_test_ultima.yy",},
     {"name":"inst_3A54D733","path":"rooms/r_test_ultima/r_test_ultima.yy",},
     {"name":"inst_221973A6","path":"rooms/r_test_ultima/r_test_ultima.yy",},
+    {"name":"inst_48D5ECA1","path":"rooms/r_test_ultima/r_test_ultima.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -775,6 +776,7 @@
         {"$GMRInstance":"v4","%Name":"inst_18241932","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_18241932","objectId":{"name":"o_target_practice","path":"objects/o_target_practice/o_target_practice.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":4450.0,"y":3850.0,},
         {"$GMRInstance":"v4","%Name":"inst_3A54D733","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3A54D733","objectId":{"name":"o_target_practice","path":"objects/o_target_practice/o_target_practice.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":5150.0,"y":3950.0,},
         {"$GMRInstance":"v4","%Name":"inst_221973A6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_221973A6","objectId":{"name":"o_target_practice","path":"objects/o_target_practice/o_target_practice.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":5250.0,"y":4250.0,},
+        {"$GMRInstance":"v4","%Name":"inst_48D5ECA1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_48D5ECA1","objectId":{"name":"o_car","path":"objects/o_car/o_car.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":4950.0,"y":4800.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Walls","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Walls","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":100,"SerialiseWidth":100,"TileCompressedData":[
           -101,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,-2,1,-98,0,
